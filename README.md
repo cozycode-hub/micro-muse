@@ -12,8 +12,3 @@ https://micromuse-eta.vercel.app
 - Claude API (coming in v2)
 - Deployed on Vercel
 
-## Run Locally
-git clone https://github.com/cozycode-hub/micro-muse.git
-cd micro-muse
-npm install
-npm run dev
