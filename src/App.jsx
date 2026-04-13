@@ -481,10 +481,218 @@ Grab something to drink. Get comfortable. Let's get into it.`,
   );
 }
 
+function LandingPage({ onStart }) {
+  return (
+    <div style={{
+      minHeight: "100vh",
+      background: "#fdf8f3",
+      fontFamily: "'DM Sans', sans-serif",
+      display: "flex",
+      flexDirection: "column",
+    }}>
+      <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+      {/* Nav */}
+      <nav style={{
+        padding: "24px 40px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+      }}>
+        <span style={{
+          fontFamily: "'Fraunces', Georgia, serif",
+          fontSize: "1.4rem",
+          fontWeight: 700,
+          color: "#1a1a1a",
+          letterSpacing: "-0.02em",
+        }}>
+          MicroMuse ✦
+        </span>
+        <button
+          onClick={onStart}
+          style={{
+            padding: "10px 22px",
+            borderRadius: "100px",
+            border: "2px solid #1a1a1a",
+            background: "transparent",
+            color: "#1a1a1a",
+            fontFamily: "'DM Sans', sans-serif",
+            fontSize: "0.85rem",
+            fontWeight: 700,
+            cursor: "pointer",
+            transition: "all 0.2s",
+          }}
+          onMouseEnter={e => { e.currentTarget.style.background = "#1a1a1a"; e.currentTarget.style.color = "white"; }}
+          onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#1a1a1a"; }}
+        >
+          Try it free →
+        </button>
+      </nav>
+
+      {/* Hero */}
+      <div style={{
+        flex: 1,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        textAlign: "center",
+        padding: "40px 24px 60px",
+        maxWidth: "720px",
+        margin: "0 auto",
+      }}>
+        <div style={{
+          display: "inline-block",
+          background: "#fde8d8",
+          color: "#c4531a",
+          fontSize: "0.78rem",
+          fontWeight: 700,
+          letterSpacing: "0.08em",
+          textTransform: "uppercase",
+          padding: "6px 14px",
+          borderRadius: "100px",
+          marginBottom: "28px",
+        }}>
+          Free beta — no account needed
+        </div>
+
+        <h1 style={{
+          fontFamily: "'Fraunces', Georgia, serif",
+          fontSize: "clamp(2.4rem, 6vw, 4rem)",
+          fontWeight: 700,
+          color: "#1a1a1a",
+          lineHeight: 1.15,
+          letterSpacing: "-0.03em",
+          margin: "0 0 24px",
+        }}>
+          Stop staring at a<br />
+          <em style={{ color: "#c4531a", fontStyle: "italic" }}>blank page.</em>
+        </h1>
+
+        <p style={{
+          fontSize: "clamp(1rem, 2.5vw, 1.2rem)",
+          color: "#555",
+          lineHeight: 1.65,
+          margin: "0 0 40px",
+          maxWidth: "520px",
+        }}>
+          MicroMuse gives you fresh content ideas for your niche — and turns them into scripts, captions, and posts in seconds. Made for creators who just want to make stuff.
+        </p>
+
+        <button
+          onClick={onStart}
+          style={{
+            padding: "16px 36px",
+            borderRadius: "100px",
+            border: "none",
+            background: "#1a1a1a",
+            color: "white",
+            fontFamily: "'DM Sans', sans-serif",
+            fontSize: "1rem",
+            fontWeight: 700,
+            cursor: "pointer",
+            transition: "all 0.2s",
+            boxShadow: "0 4px 20px rgba(0,0,0,0.15)",
+            letterSpacing: "0.01em",
+          }}
+          onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 8px 28px rgba(0,0,0,0.2)"; }}
+          onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 4px 20px rgba(0,0,0,0.15)"; }}
+        >
+          Start creating — it's free ✦
+        </button>
+
+        <p style={{ color: "#bbb", fontSize: "0.78rem", marginTop: "14px", fontWeight: 500 }}>
+          No sign up. No credit card. Just ideas.
+        </p>
+
+        {/* Feature pills */}
+        <div style={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "10px",
+          justifyContent: "center",
+          marginTop: "56px",
+        }}>
+          {[
+            "💰 Finance", "👶 Parenting", "✨ Lifestyle", "🏋️ Fitness",
+            "🍜 Food", "💻 Tech", "💄 Beauty", "🧠 Mindset"
+          ].map(label => (
+            <span key={label} style={{
+              padding: "8px 16px",
+              borderRadius: "100px",
+              background: "white",
+              border: "1px solid #e8e0d8",
+              fontSize: "0.85rem",
+              fontWeight: 600,
+              color: "#444",
+              boxShadow: "0 2px 6px rgba(0,0,0,0.04)",
+            }}>
+              {label}
+            </span>
+          ))}
+        </div>
+
+        {/* How it works */}
+        <div style={{
+          display: "flex",
+          gap: "12px",
+          marginTop: "64px",
+          flexWrap: "wrap",
+          justifyContent: "center",
+        }}>
+          {[
+            { step: "1", title: "Pick your niche", desc: "Choose from 8 content categories" },
+            { step: "2", title: "Get fresh ideas", desc: "Shuffle until something clicks" },
+            { step: "3", title: "Generate content", desc: "TikTok, YouTube, Substack & more" },
+          ].map(({ step, title, desc }) => (
+            <div key={step} style={{
+              background: "white",
+              border: "1px solid #ede6dc",
+              borderRadius: "16px",
+              padding: "20px 24px",
+              textAlign: "left",
+              width: "180px",
+              boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
+            }}>
+              <div style={{
+                width: "28px",
+                height: "28px",
+                borderRadius: "50%",
+                background: "#fde8d8",
+                color: "#c4531a",
+                fontWeight: 700,
+                fontSize: "0.85rem",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                marginBottom: "12px",
+              }}>
+                {step}
+              </div>
+              <p style={{ fontWeight: 700, fontSize: "0.9rem", color: "#1a1a1a", margin: "0 0 4px" }}>{title}</p>
+              <p style={{ fontSize: "0.8rem", color: "#888", margin: 0, lineHeight: 1.4 }}>{desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Footer */}
+      <div style={{ textAlign: "center", padding: "24px", color: "#ccc", fontSize: "0.78rem", fontWeight: 500 }}>
+        MicroMuse — built for creators who actually want to make stuff
+      </div>
+    </div>
+  );
+}
+
 export default function MicroMuse() {
+  const [showLanding, setShowLanding] = useState(true);
   const [selectedNiche, setSelectedNiche] = useState(null);
   const [cards, setCards] = useState([]);
   const [activeCard, setActiveCard] = useState(null);
+
+  if (showLanding) {
+    return <LandingPage onStart={() => setShowLanding(false)} />;
+  }
 
   const niche = NICHES.find((n) => n.id === selectedNiche);
 
